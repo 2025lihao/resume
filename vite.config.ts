@@ -7,5 +7,5 @@ export default defineConfig({
   // Critical for GitHub Pages: 
   // Sets the base path to relative './' instead of absolute '/'.
   // This ensures assets (js, css) are found even when deployed in a subdirectory (e.g. username.github.io/repo/).
-  base: './', 
+  base: '/resume/', 
 })
