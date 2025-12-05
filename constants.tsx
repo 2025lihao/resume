@@ -1,0 +1,124 @@
+import { TimelineItem, SkillItem, CertificationItem, LanguageItem } from './types';
+
+export const TIMELINE_DATA: TimelineItem[] = [
+  {
+    id: 1,
+    date: '1996.06',
+    title: '出生',
+    subtitle: '中国・天津',
+    description: '中国の天津市にて生まれる。',
+    category: 'milestone'
+  },
+  {
+    id: 2,
+    date: '2014.09',
+    title: '北京外国語大学 入学',
+    subtitle: '日本語学科',
+    description: '中国最高峰の外国語大学に入学。日本語および日本文化を専攻。',
+    category: 'education'
+  },
+  {
+    id: 3,
+    date: '2016.08',
+    title: 'JLPT N1 取得',
+    subtitle: '日本語能力試験',
+    description: '最高レベルであるN1に合格。',
+    category: 'milestone',
+    tags: ['JLPT N1']
+  },
+  {
+    id: 4,
+    date: '2018.06',
+    title: '北京外国語大学 卒業',
+    subtitle: '文学学士号取得',
+    description: '4年間の課程を修了し、卒業。',
+    category: 'education'
+  },
+  {
+    id: 5,
+    date: '2018.07 - 2022.12',
+    title: 'MSD (Merck & Co.) 北京支社',
+    subtitle: 'Pharmacovigilance Specialist',
+    description: '日・英・中を用いたグローバル環境での業務。安全性情報管理を担当し、Pythonを活用した業務プロセス改善や自動化、Power BIによる可視化を推進。',
+    category: 'work',
+    tags: ['Global Collaboration', 'Python', 'Process Improvement']
+  },
+  {
+    id: 6,
+    date: '2023.04',
+    title: 'QLITE株式会社 入社',
+    subtitle: 'AWS Cloud Engineer (SES)',
+    description: 'AWSを中心としたインフラエンジニアとしてキャリアチェンジ。来日に向けたオンライン研修および準備期間。',
+    category: 'work'
+  },
+  {
+    id: 7,
+    date: '2023.10',
+    title: '来日',
+    subtitle: '東京',
+    description: '日本での生活を開始。',
+    category: 'migration'
+  },
+  {
+    id: 8,
+    date: '2024.01 - 2025.03',
+    title: 'NTT DATA (派遣)',
+    subtitle: '大阪・関西万博向け交通アプリ基盤構築',
+    description: '交通ナビゲーションアプリのクラウド基盤構築プロジェクトに参画。基本設計、構築、IaC化、運用自動化、結合試験まで全工程を担当。',
+    category: 'work',
+    tags: ['AWS Design', 'Construction', 'IaC', 'Automation', 'Test']
+  },
+  {
+    id: 9,
+    date: '2025.04 - 2025.11',
+    title: 'アドソル日進 (派遣)',
+    subtitle: '決済システム開発プロジェクト',
+    description: '決済方式、加盟店管理を扱うシステムにおいて、AWS基盤の設計・構築・DevOps・SRE業務に従事。CI/CDパイプライン構築、コンテナ運用、監視設計などを主導。',
+    category: 'work',
+    tags: ['AWS Design', 'DevOps', 'SRE', 'CI/CD', 'ECS', 'Monitoring']
+  }
+];
+
+export const CERTIFICATIONS: CertificationItem[] = [
+  { id: 1, name: 'Solutions Architect', level: 'Professional', date: '2025', badgeColor: 'from-blue-500 to-cyan-400' },
+  { id: 2, name: 'DevOps Engineer', level: 'Professional', date: '2025', badgeColor: 'from-blue-500 to-cyan-400' },
+  { id: 3, name: 'Security', level: 'Specialty', date: '2025', badgeColor: 'from-red-500 to-pink-500' },
+  { id: 4, name: 'SysOps Administrator', level: 'Associate', date: '2025', badgeColor: 'from-teal-500 to-emerald-400' },
+  { id: 5, name: 'Developer', level: 'Associate', date: '2025', badgeColor: 'from-teal-500 to-emerald-400' },
+  { id: 6, name: 'Solutions Architect', level: 'Associate', date: '2025', badgeColor: 'from-teal-500 to-emerald-400' },
+  { id: 7, name: 'AI Practitioner', level: 'Foundational', date: '2025', badgeColor: 'from-gray-500 to-gray-400' },
+  { id: 8, name: 'Cloud Practitioner', level: 'Foundational', date: '2025', badgeColor: 'from-gray-500 to-gray-400' },
+];
+
+export const LANGUAGES: LanguageItem[] = [
+  { 
+    language: '日本語', 
+    level: 'ビジネスレベル', 
+    description: '学習歴10年以上。JLPT N1取得。', 
+    color: 'bg-red-50 text-red-600' 
+  },
+  { 
+    language: '中文 (中国語)', 
+    level: 'ネイティブ', 
+    description: '母語。', 
+    color: 'bg-orange-50 text-orange-600' 
+  },
+  { 
+    language: 'English', 
+    level: '準ビジネスレベル', 
+    description: '米系大手企業での実務経験4年以上。', 
+    color: 'bg-blue-50 text-blue-600' 
+  },
+];
+
+export const SKILLS: SkillItem[] = [
+  { name: 'AWS Services', level: 90, category: 'Cloud' },
+  { name: 'CI/CD (CodePipeline/GitHub Actions)', level: 85, category: 'DevOps' },
+  { name: 'IaC (Terraform/CDK)', level: 85, category: 'DevOps' },
+  { name: 'Python (Automation)', level: 80, category: 'Language' },
+  { name: 'Container (Docker/ECS)', level: 75, category: 'Infrastructure' },
+  { name: 'Serverless (Lambda/DynamoDB)', level: 80, category: 'Cloud' },
+  { name: 'Network (VPC/Route53)', level: 85, category: 'Cloud' },
+  { name: 'Monitoring (CloudWatch/X-Ray)', level: 80, category: 'SRE' },
+  { name: 'Troubleshooting', level: 85, category: 'Operations' },
+];
