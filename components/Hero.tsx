@@ -15,22 +15,17 @@ const Hero: React.FC = () => {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: [0, -8, 0] }}
+        animate={{ y: [0, -15, 0], rotate: [0, 5, -5, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-14 right-8 hidden md:block"
+        className="absolute top-24 right-[15%] opacity-10 md:opacity-20"
       >
-        <div className="w-20 h-20 rounded-[32px] bg-white/70 border border-white/60 backdrop-blur flex items-center justify-center shadow-lg shadow-amber-100">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="34" r="18" fill="#FFEDD5" />
-            <circle cx="22" cy="20" r="8" fill="#FED7AA" />
-            <circle cx="42" cy="20" r="8" fill="#FED7AA" />
-            <circle cx="26" cy="32" r="3" fill="#1E1E1E" />
-            <circle cx="38" cy="32" r="3" fill="#1E1E1E" />
-            <path d="M26 40C28 44 36 44 38 40" stroke="#1E1E1E" strokeWidth="2.5" strokeLinecap="round" />
-            <circle cx="32" cy="36" r="3" fill="#F97316" />
-          </svg>
-        </div>
+        <svg width="80" height="80" viewBox="0 0 100 100" className="text-apple-blue fill-current">
+          <circle cx="25" cy="25" r="15" />
+          <circle cx="75" cy="25" r="15" />
+          <circle cx="50" cy="55" r="40" />
+          <circle cx="35" cy="45" r="4" fill="white" />
+          <circle cx="65" cy="45" r="4" fill="white" />
+        </svg>
       </motion.div>
 
       <motion.div

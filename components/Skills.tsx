@@ -16,18 +16,22 @@ const SKILLS = [
   { id: 'terraform', name: 'Terraform', description: 'インフラのコード化と再利用可能なモジュール設計。', image: `${basePath}images/skill-terraform.png` },
   { id: 'aws-cdk', name: 'AWS CDK', description: 'TypeScript/Python でのクラウドリソース定義。', image: `${basePath}images/skill-aws-cdk.png` },
   { id: 'postgresql', name: 'PostgreSQL', description: 'アプリケーションのデータストアとして利用。', image: `${basePath}images/skill-postgresql.png` },
+  { id: 'datadog', name: 'Datadog', description: '分散トレースやメトリクスでシステム監視を実施。', image: `${basePath}images/skill-datadog.png` },
+  { id: 'ansible', name: 'Ansible', description: 'サーバ設定の自動化と反復構成管理を担当。', image: `${basePath}images/skill-ansible.png` },
   { id: 'vscode', name: 'VS Code', description: '普段の開発や IaC 設計のメインエディタ。', image: `${basePath}images/skill-vscode.png` },
   { id: 'notion', name: 'Notion', description: '個人メモや情報整理・ナレッジ共有に利用。', image: `${basePath}images/skill-notion.png` },
   { id: 'jira', name: 'Jira', description: 'タスク管理やスプリント計画の管理。', image: `${basePath}images/skill-jira.png` },
   { id: 'confluence', name: 'Confluence', description: '設計書や運用ドキュメントの整理。', image: `${basePath}images/skill-confluence.png` },
-  { id: 'github-actions', name: 'GitHub Actions', description: 'CI/CD パイプラインや自動化ワークフロー。', image: `${basePath}images/skill-github-actions.png` },
-  { id: 'slack', name: 'Slack', description: 'チームコミュニケーションとアラート連携。', image: `${basePath}images/skill-slack.png` },
 ];
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-28 px-6 bg-white border-t border-white/40">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="relative py-28 px-6 bg-gradient-to-b from-white via-sky-50/40 to-white border-t border-white/40 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-white/60 blur-[140px]" />
+        <div className="absolute bottom-[-60px] right-0 w-80 h-80 bg-blue-100/40 blur-[160px]" />
+      </div>
+      <div className="relative max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

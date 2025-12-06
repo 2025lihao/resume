@@ -1,59 +1,73 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Cloud, Workflow, ShieldCheck, Database } from 'lucide-react';
 
 const DISCIPLINES = [
   {
-    id: 'cloud',
+    id: 'infra',
     title: 'Cloud / Infra',
     description: 'AWS を中心に、VPC・マルチアカウント構成・ネットワーク設計などのインフラ基盤を担当しています。',
-    image: '/images/discipline-cloud.png',
+    icon: Cloud,
+    iconClass: 'text-sky-500',
+    bgClass: 'from-sky-50/70 via-white/40 to-white/30',
   },
   {
     id: 'devops',
-    title: 'DevOps / Automation',
+    title: 'DevOps',
     description: 'Terraform や AWS CDK を用いた IaC 化、CI/CD パイプライン構築など、自動化による効率化を行っています。',
-    image: '/images/discipline-devops.png',
+    icon: Workflow,
+    iconClass: 'text-violet-500',
+    bgClass: 'from-violet-50/70 via-white/40 to-white/30',
   },
   {
-    id: 'runtime',
-    title: 'Containers / Runtime',
-    description: 'ECS/Fargate などのコンテナ基盤でアプリケーションを安定して動かすための設計・運用を担当しています。',
-    image: '/images/discipline-runtime.png',
+    id: 'security',
+    title: 'Security',
+    description: 'クラウド環境のセキュリティ設計・運用に関わっています。',
+    icon: ShieldCheck,
+    iconClass: 'text-cyan-500',
+    bgClass: 'from-cyan-50/70 via-white/40 to-white/30',
   },
   {
     id: 'data',
-    title: 'Data & Databases',
+    title: 'Database',
     description: 'PostgreSQL などのデータベース設計や、ログ・メトリクスを活かした運用改善に関わっています。',
-    image: '/images/discipline-data.png',
-  },
-  {
-    id: 'collab',
-    title: 'Collaboration & Delivery',
-    description: 'Jira・Confluence・Notion などのツールを使いながら、チームとの情報共有やドキュメント整備に力を入れています。',
-    image: '/images/discipline-collab.png',
+    icon: Database,
+    iconClass: 'text-emerald-500',
+    bgClass: 'from-emerald-50/70 via-white/40 to-white/30',
   },
 ];
 
 const Disciplines: React.FC = () => {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-5xl mx-auto text-center">
+    <section className="relative py-32 px-6 bg-gradient-to-br from-white via-amber-50/30 to-sky-50/20 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-16 -left-10 w-48 h-48 bg-white/60 blur-[80px]" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-amber-100/50 blur-[120px]" />
+      </div>
+      <div className="relative max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-2 text-apple-text">Disciplines</h2>
         <p className="text-apple-subtext mb-10">
           担当しているクラウドまわりの領域を、シンプルなアイコンでまとめました。
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-start justify-items-start">
-          {DISCIPLINES.map((item) => (
-            <div key={item.id} className="flex flex-col items-start text-left gap-3 max-w-[13rem] w-full">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="h-24 w-24 md:h-28 md:w-28 object-contain"
-                loading="lazy"
-              />
-              <h3 className="text-base md:text-lg font-semibold text-apple-text">{item.title}</h3>
-              <p className="text-xs md:text-sm text-apple-subtext">{item.description}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-10 items-start justify-items-center max-w-7xl mx-auto">
+          {DISCIPLINES.map((item) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.id}
+                whileHover={{ y: -4, scale: 1.015 }}
+                transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                className={`group relative flex flex-col items-center text-center p-8 md:p-9 w-full min-h-[360px] rounded-[32px] bg-white/60 backdrop-blur-xl border border-white/70 shadow-[0_18px_48px_rgba(15,23,42,0.10)] hover:-translate-y-1 hover:scale-[1.015] hover:shadow-[0_25px_60px_rgba(15,23,42,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/60 transition-all duration-300 bg-gradient-to-b ${item.bgClass}`}
+              >
+                <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.75),transparent_60%)]" />
+                <div className="relative z-10 flex flex-col items-center text-center flex-1">
+                  <Icon className={`h-20 w-20 md:h-24 md:w-24 mb-5 transition-transform duration-300 ${item.iconClass} group-hover:scale-105`} strokeWidth={2.2} />
+                  <h3 className="mt-1 text-lg md:text-xl font-semibold text-slate-900">{item.title}</h3>
+                  <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-apple-subtext">{item.description}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
