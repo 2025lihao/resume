@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Award } from 'lucide-react';
 
 const CERTIFICATIONS = [
   {
@@ -60,102 +61,94 @@ const CERTIFICATIONS = [
   },
 ];
 
-const levelStyles: Record<
+const levelThemes: Record<
   'Professional' | 'Specialty' | 'Associate' | 'Foundational',
-  { cardBg: string; accent: string; glow: string; iconBg: string; iconDot: string }
+  { badgeGradient: string }
 > = {
   Professional: {
-    cardBg: 'from-[#f7fbff] via-white to-[#ecf4ff]',
-    accent: 'text-[#1a5cff]',
-    glow: 'shadow-[0_20px_45px_-30px_rgba(56,149,255,0.9)]',
-    iconBg: 'from-[#cfe7ff] to-[#e4f0ff]',
-    iconDot: 'bg-[#1a5cff]',
+    badgeGradient: 'from-blue-500 to-cyan-400',
   },
   Specialty: {
-    cardBg: 'from-[#fff5f8] via-white to-[#ffeef5]',
-    accent: 'text-[#d6336c]',
-    glow: 'shadow-[0_20px_45px_-30px_rgba(244,114,182,0.9)]',
-    iconBg: 'from-[#ffd6e5] to-[#ffe5f1]',
-    iconDot: 'bg-[#d6336c]',
+    badgeGradient: 'from-red-500 to-pink-500',
   },
   Associate: {
-    cardBg: 'from-[#f2fbf6] via-white to-[#e9f8f0]',
-    accent: 'text-[#2f9e44]',
-    glow: 'shadow-[0_20px_45px_-30px_rgba(16,185,129,0.8)]',
-    iconBg: 'from-[#d7f5e4] to-[#e6f9ed]',
-    iconDot: 'bg-[#2f9e44]',
+    badgeGradient: 'from-teal-500 to-emerald-400',
   },
   Foundational: {
-    cardBg: 'from-[#f6f7f9] via-white to-[#f1f2f5]',
-    accent: 'text-slate-500',
-    glow: 'shadow-[0_20px_45px_-30px_rgba(100,116,139,0.6)]',
-    iconBg: 'from-[#e4e7ec] to-[#f3f4f6]',
-    iconDot: 'bg-slate-500',
+    badgeGradient: 'from-gray-500 to-gray-400',
   },
 };
 
 const Certifications: React.FC = () => {
   return (
-    <section id="certifications" className="py-28 px-6 bg-transparent border-t border-white/40">
+    <section id="certifications" className="py-32 px-6 bg-transparent border-t border-gray-200/50">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <span className="text-apple-blue font-medium text-xs tracking-[0.35em] uppercase mb-3 block">Qualifications</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-apple-text mb-4">
-            8x AWS Certified（2025年取得）
+          <span className="text-apple-blue font-medium text-sm tracking-widest uppercase mb-4 block">
+            Qualifications
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-apple-text mb-6">
+            8x AWS Certified
           </h2>
-          <p className="text-apple-subtext max-w-3xl mx-auto">
-            Architecture / DevOps / Security / Operations — completed within one year to back client delivery.
+          <p className="text-apple-subtext max-w-2xl mx-auto">
+            Architecture, Operations, Developer Tools, Security. All acquired in 2025.
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {CERTIFICATIONS.map((cert, index) => {
-            const styles = levelStyles[cert.level as keyof typeof levelStyles];
+            const theme = levelThemes[cert.level as keyof typeof levelThemes];
             return (
               <motion.a
                 key={cert.id}
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 24, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: [12, -4, 0, -2, 0], scale: [0.95, 1.05, 0.98, 1.02, 1] }}
+                whileHover={{ scale: 1.03, y: -5 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.04 }}
-                className={`group relative flex flex-col justify-between rounded-[32px] border border-white/70 bg-gradient-to-br ${styles.cardBg} px-6 py-5 ${styles.glow} cursor-pointer
-                  transition-transform transition-shadow hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-apple-blue/30`}
+                transition={{ delay: index * 0.05, duration: 0.9, ease: 'easeOut' }}
+                className="group relative flex flex-col bg-gradient-to-br from-white via-white/95 to-[#f5f8ff] backdrop-blur-md border border-white/60 p-6 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-apple-blue/30 min-h-[225px]"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`h-10 w-10 rounded-full bg-gradient-to-br ${styles.iconBg} flex items-center justify-center`}>
-                    <span className={`h-3 w-3 rounded-full ${styles.iconDot}`}></span>
-                  </div>
-                  <span className="text-[11px] font-medium text-apple-text/70 bg-white/80 px-2 py-0.5 rounded-full">
-                    {cert.year}
-                  </span>
+                <div className="pointer-events-none absolute inset-0 rounded-3xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white via-white/85 to-white/40" />
+                  <div className={`absolute inset-y-0 right-0 w-1/2 bg-gradient-to-br ${theme.badgeGradient} opacity-15 blur-2xl transition-opacity duration-500 group-hover:opacity-25`} />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.85),transparent_70%)] opacity-80" />
                 </div>
-                  <h3 className="text-base font-semibold text-apple-text leading-snug">
-                    {cert.name}
-                  </h3>
-                <div className="mt-4 flex items-center justify-between text-xs md:text-sm">
-                  <span className={`font-semibold ${styles.accent}`}>{cert.level}</span>
-                  <span className="text-[11px] md:text-xs text-apple-blue flex items-center gap-1 opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition">
-                    View badge
-                    <span>↗</span>
-                  </span>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className={`p-3 rounded-2xl bg-gradient-to-br ${theme.badgeGradient} text-white shadow-md shadow-gray-200`}>
+                      <Award size={24} />
+                    </div>
+                    <span className="text-xs font-mono text-apple-subtext border border-gray-100 px-2 py-1 rounded-full bg-gray-50/50">
+                      {cert.year}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-apple-text mb-1 leading-tight">{cert.name}</h3>
+                  <div className="mt-auto pt-4 flex items-center justify-between gap-2">
+                    <p className={`text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r ${theme.badgeGradient}`}>
+                      {cert.level}
+                    </p>
+                    <span
+                      className={`inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wide bg-clip-text text-transparent bg-gradient-to-r ${theme.badgeGradient}`}
+                    >
+                      View badge
+                      <span aria-hidden>↗</span>
+                    </span>
+                  </div>
                 </div>
               </motion.a>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
