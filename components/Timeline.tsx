@@ -27,7 +27,7 @@ const Timeline: React.FC = () => {
           {TIMELINE_DATA.map((item) => (
             <motion.div
               key={item.id}
-              className="relative min-w-[300px] md:min-w-[400px] flex flex-col"
+              className="relative min-w-[300px] md:min-w-[400px] flex flex-col h-[340px] md:h-[360px]"
               whileHover={{ y: -6 }}
             >
               <div className="mb-5 border-b border-white/40 pb-3 flex items-baseline gap-3">
@@ -38,7 +38,7 @@ const Timeline: React.FC = () => {
                 </span>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-lg border border-white/60 p-5 rounded-3xl flex flex-col gap-3">
+              <div className="bg-white/80 backdrop-blur-lg border border-white/60 p-5 rounded-3xl flex flex-col gap-3 h-full">
                 <div className="flex items-center gap-3">
                   <div
                     className={`p-2 rounded-2xl ${

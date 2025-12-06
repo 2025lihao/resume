@@ -79,6 +79,23 @@ const levelThemes: Record<
   },
 };
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const Certifications: React.FC = () => {
   return (
     <section id="certifications" className="py-32 px-6 bg-transparent border-t border-gray-200/50">
@@ -100,8 +117,14 @@ const Certifications: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {CERTIFICATIONS.map((cert, index) => {
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {CERTIFICATIONS.map((cert) => {
             const theme = levelThemes[cert.level as keyof typeof levelThemes];
             return (
               <motion.a
@@ -109,12 +132,9 @@ const Certifications: React.FC = () => {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 24, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: [12, -4, 0, -2, 0], scale: [0.95, 1.05, 0.98, 1.02, 1] }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.9, ease: 'easeOut' }}
                 className="group relative flex flex-col bg-gradient-to-br from-white via-white/95 to-[#f5f8ff] backdrop-blur-md border border-white/60 p-6 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-apple-blue/30 min-h-[225px]"
+                variants={itemVariants}
+                whileHover={{ scale: 1.03, y: -5 }}
               >
                 <div className="pointer-events-none absolute inset-0 rounded-3xl overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-white via-white/85 to-white/40" />
@@ -148,7 +168,7 @@ const Certifications: React.FC = () => {
               </motion.a>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

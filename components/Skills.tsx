@@ -54,7 +54,7 @@ const Skills: React.FC = () => {
               <img
                 src={skill.image}
                 alt={skill.name}
-                className="h-16 w-16 md:h-20 md:w-20 object-contain"
+                className="h-20 w-20 md:h-24 md:w-24 object-contain"
                 loading="lazy"
               />
               <h3 className="text-sm md:text-base font-semibold text-apple-text">{skill.name}</h3>

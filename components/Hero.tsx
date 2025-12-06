@@ -1,27 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Award, Mail, Route, Clock4 } from 'lucide-react';
-
-const quickFacts = [
-  { label: 'Primary Stack', value: 'AWS + Terraform' },
-  { label: '最近の成果', value: 'Zero-downtime CI/CD' },
-  { label: 'Languages', value: 'JP · ZH · EN' },
-];
+import { ChevronDown, Award, Mail, Route } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [tokyoTime, setTokyoTime] = useState(() =>
-    new Intl.DateTimeFormat('ja-JP', { hour12: false, hour: '2-digit', minute: '2-digit' }).format(new Date())
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTokyoTime(
-        new Intl.DateTimeFormat('ja-JP', { hour12: false, hour: '2-digit', minute: '2-digit' }).format(new Date())
-      );
-    }, 30_000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden text-center px-4">
       <div className="absolute inset-0 opacity-40 pointer-events-none">
@@ -34,12 +15,22 @@ const Hero: React.FC = () => {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="absolute top-16 right-8 bg-white/70 border border-white/50 px-3 py-1 rounded-full text-xs font-semibold tracking-[0.2em] text-apple-subtext hidden md:flex items-center gap-2"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: [0, -8, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-14 right-8 hidden md:block"
       >
-        <Clock4 size={14} className="text-apple-blue" />
-        {tokyoTime}
+        <div className="w-20 h-20 rounded-[32px] bg-white/70 border border-white/60 backdrop-blur flex items-center justify-center shadow-lg shadow-amber-100">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="34" r="18" fill="#FFEDD5" />
+            <circle cx="22" cy="20" r="8" fill="#FED7AA" />
+            <circle cx="42" cy="20" r="8" fill="#FED7AA" />
+            <circle cx="26" cy="32" r="3" fill="#1E1E1E" />
+            <circle cx="38" cy="32" r="3" fill="#1E1E1E" />
+            <path d="M26 40C28 44 36 44 38 40" stroke="#1E1E1E" strokeWidth="2.5" strokeLinecap="round" />
+            <circle cx="32" cy="36" r="3" fill="#F97316" />
+          </svg>
+        </div>
       </motion.div>
 
       <motion.div
@@ -48,24 +39,12 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className="z-10 flex flex-col items-center"
       >
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
-          transition={{ delay: 0.2 }}
-          className="mb-6 flex items-center gap-2 px-5 py-2 bg-white/70 backdrop-blur-sm rounded-full border border-white/50 text-apple-text"
-        >
-          <Award size={16} className="text-amber-500" />
-          <span className="text-sm font-medium tracking-wide">8x AWS Certified（2025）</span>
-        </motion.div>
-
         <h2 className="text-apple-blue font-semibold text-xs md:text-sm mb-4 tracking-[0.4em] uppercase">
           Infra & Reliability Engineer
         </h2>
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-apple-text mb-4">
           李 昊
-          <span className="block text-2xl md:text-3xl font-normal text-apple-subtext mt-3">Li Hao</span>
+          <span className="block text-2xl md:text-3xl font-normal text-apple-subtext mt-3">リ コウ</span>
         </h1>
         <p className="text-lg md:text-xl text-apple-subtext max-w-3xl mx-auto leading-relaxed">
           AWS / Terraform を軸に、安全で読めるクラウド基盤を短期間で整えることに集中しています。
@@ -90,21 +69,6 @@ const Hero: React.FC = () => {
             <Route size={18} />
             View Resume
           </motion.button>
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-4 mt-12 max-w-3xl">
-          {quickFacts.map((fact) => (
-            <motion.div
-              key={fact.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex-1 rounded-3xl border border-white/50 bg-white/60 backdrop-blur px-4 py-3 text-left"
-            >
-              <p className="text-[11px] uppercase tracking-[0.3em] text-apple-subtext mb-1">{fact.label}</p>
-              <p className="text-base font-semibold text-apple-text">{fact.value}</p>
-            </motion.div>
-          ))}
         </div>
       </motion.div>
 

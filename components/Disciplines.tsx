@@ -41,17 +41,17 @@ const Disciplines: React.FC = () => {
         <p className="text-apple-subtext mb-10">
           担当しているクラウドまわりの領域を、シンプルなアイコンでまとめました。
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-start justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-start justify-items-start">
           {DISCIPLINES.map((item) => (
-            <div key={item.id} className="flex flex-col items-center text-center gap-3">
+            <div key={item.id} className="flex flex-col items-start text-left gap-3 max-w-[13rem] w-full">
               <img
                 src={item.image}
                 alt={item.title}
-                className="h-20 w-20 md:h-24 md:w-24 object-contain"
+                className="h-24 w-24 md:h-28 md:w-28 object-contain"
                 loading="lazy"
               />
               <h3 className="text-base md:text-lg font-semibold text-apple-text">{item.title}</h3>
-              <p className="text-xs md:text-sm text-apple-subtext max-w-[12rem]">{item.description}</p>
+              <p className="text-xs md:text-sm text-apple-subtext">{item.description}</p>
             </div>
           ))}
         </div>

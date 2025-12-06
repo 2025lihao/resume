@@ -67,7 +67,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
   {
     id: 8,
     date: '2024.01 - 2025.03',
-    title: 'NTT DATA (派遣)',
+    title: '派遣先：NTT DATA',
     subtitle: '大阪・関西万博向け交通アプリ基盤構築',
     description: '大阪・関西万博アプリのAWS基盤を基本設計から運用まで担当。IaCと監視を整備。',
     category: 'work',
@@ -76,11 +76,20 @@ export const TIMELINE_DATA: TimelineItem[] = [
   {
     id: 9,
     date: '2025.04 - 2025.11',
-    title: 'アドソル日進 (派遣)',
+    title: '派遣先：アドソル日進',
     subtitle: '決済システム開発プロジェクト',
     description: '決済システムのAWS設計・DevOpsを担当。CI/CD、ECS運用、監視を一体化。',
     category: 'work',
     tags: ['AWS Design', 'DevOps', 'SRE', 'CI/CD', 'ECS', 'Monitoring']
+  },
+  {
+    id: 10,
+    date: '2025.12 - 現在',
+    title: '派遣先：富士ソフト',
+    subtitle: '公文教育向けシステム基盤プロジェクト',
+    description: '公文教育のシステム基盤案件に参画。AWSテストと運用・環境保守を担当し、品質担保を推進。',
+    category: 'work',
+    tags: ['AWS Testing', 'Operations', 'Quality']
   }
 ];
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Mail, ArrowUpRight } from 'lucide-react';
+import { Mail, ArrowUpRight } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -20,15 +20,6 @@ const Footer: React.FC = () => {
           >
             <Mail size={18} />
             2025lihao@gmail.com
-          </a>
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full border border-apple-text/10 bg-white/70 text-apple-text font-semibold flex items-center gap-2 justify-center"
-          >
-            <Github size={18} />
-            GitHub
           </a>
         </div>
 
