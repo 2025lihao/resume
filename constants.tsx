@@ -1,4 +1,9 @@
-import { TimelineItem, SkillItem, CertificationItem, LanguageItem } from './types';
+import { 
+  TimelineItem, 
+  CertificationItem, 
+  LanguageItem, 
+  AboutFact
+} from './types';
 
 export const TIMELINE_DATA: TimelineItem[] = [
   {
@@ -14,7 +19,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     date: '2014.09',
     title: '北京外国語大学 入学',
     subtitle: '日本語学科',
-    description: '中国最高峰の外国語大学に入学。日本語および日本文化を専攻。',
+    description: '日本語専攻として入学。語学・異文化コミュニケーションを集中して学ぶ。',
     category: 'education'
   },
   {
@@ -39,7 +44,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     date: '2018.07 - 2022.12',
     title: 'MSD (Merck & Co.) 北京支社',
     subtitle: 'Pharmacovigilance Specialist',
-    description: '日・英・中を用いたグローバル環境での業務。安全性情報管理を担当し、Pythonを活用した業務プロセス改善や自動化、Power BIによる可視化を推進。',
+    description: '日英中を用いた安全性情報管理を担当。監査対応やPython自動化で品質改善を推進。',
     category: 'work',
     tags: ['Global Collaboration', 'Python', 'Process Improvement']
   },
@@ -48,7 +53,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     date: '2023.04',
     title: 'QLITE株式会社 入社',
     subtitle: 'AWS Cloud Engineer (SES)',
-    description: 'AWSを中心としたインフラエンジニアとしてキャリアチェンジ。来日に向けたオンライン研修および準備期間。',
+    description: 'AWS基盤に集中してキャリア転換。TerraformやIaCの基礎を固める準備期間。',
     category: 'work'
   },
   {
@@ -64,7 +69,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     date: '2024.01 - 2025.03',
     title: 'NTT DATA (派遣)',
     subtitle: '大阪・関西万博向け交通アプリ基盤構築',
-    description: '交通ナビゲーションアプリのクラウド基盤構築プロジェクトに参画。基本設計、構築、IaC化、運用自動化、結合試験まで全工程を担当。',
+    description: '大阪・関西万博アプリのAWS基盤を基本設計から運用まで担当。IaCと監視を整備。',
     category: 'work',
     tags: ['AWS Design', 'Construction', 'IaC', 'Automation', 'Test']
   },
@@ -73,7 +78,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     date: '2025.04 - 2025.11',
     title: 'アドソル日進 (派遣)',
     subtitle: '決済システム開発プロジェクト',
-    description: '決済方式、加盟店管理を扱うシステムにおいて、AWS基盤の設計・構築・DevOps・SRE業務に従事。CI/CDパイプライン構築、コンテナ運用、監視設計などを主導。',
+    description: '決済システムのAWS設計・DevOpsを担当。CI/CD、ECS運用、監視を一体化。',
     category: 'work',
     tags: ['AWS Design', 'DevOps', 'SRE', 'CI/CD', 'ECS', 'Monitoring']
   }
@@ -111,14 +116,8 @@ export const LANGUAGES: LanguageItem[] = [
   },
 ];
 
-export const SKILLS: SkillItem[] = [
-  { name: 'AWS Services', level: 90, category: 'Cloud' },
-  { name: 'CI/CD (CodePipeline/GitHub Actions)', level: 85, category: 'DevOps' },
-  { name: 'IaC (Terraform/CDK)', level: 85, category: 'DevOps' },
-  { name: 'Python (Automation)', level: 80, category: 'Language' },
-  { name: 'Container (Docker/ECS)', level: 75, category: 'Infrastructure' },
-  { name: 'Serverless (Lambda/DynamoDB)', level: 80, category: 'Cloud' },
-  { name: 'Network (VPC/Route53)', level: 85, category: 'Cloud' },
-  { name: 'Monitoring (CloudWatch/X-Ray)', level: 80, category: 'SRE' },
-  { name: 'Troubleshooting', level: 85, category: 'Operations' },
+export const ABOUT_FACTS: AboutFact[] = [
+  { id: 1, label: 'AWS資格', value: '8', detail: '2025年取得' },
+  { id: 2, label: 'Languages', value: 'JP / ZH / EN', detail: 'トリリンガル' },
+  { id: 3, label: 'Career', value: 'Pharma → Cloud', detail: '信頼性志向' },
 ];

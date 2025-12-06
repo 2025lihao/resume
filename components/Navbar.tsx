@@ -5,13 +5,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const newProgress = docHeight > 0 ? scrollTop / docHeight : 0;
+      setProgress(newProgress);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   const scrollTo = (id: string) => {
@@ -67,6 +77,10 @@ const Navbar: React.FC = () => {
           </motion.button>
         </div>
       </div>
+      <motion.div
+        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-amber-300 via-orange-400 to-apple-blue origin-left"
+        style={{ scaleX: Math.max(progress, 0.02) }}
+      />
 
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>

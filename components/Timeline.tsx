@@ -8,75 +8,67 @@ const Timeline: React.FC = () => {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-
-  // Transform vertical page scroll into horizontal timeline movement
-  // Extended the scroll range to ensure smoother animation
-  const x = useTransform(scrollYProgress, [0, 1], ["2%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ['2%', '-95%']);
 
   return (
-    // Increased height to 500vh to slow down the scroll speed and ensure sticky duration is sufficient
-    <section id="timeline" ref={targetRef} className="relative h-[500vh] bg-transparent">
+    <section id="timeline" ref={targetRef} className="relative h-[450vh] bg-transparent">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        
-        {/* Section Header - Fixed Position relative to the sticky container */}
-        <div className="absolute top-16 left-6 md:left-12 z-20 mix-blend-darken">
-          <span className="text-amber-600 font-medium text-sm tracking-widest uppercase mb-2 block">My History</span>
-          <h2 className="text-4xl md:text-6xl font-bold text-apple-text mb-2">Career Journey</h2>
-          <div className="flex items-center gap-2 text-apple-subtext animate-bounce mt-4 bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm w-fit">
-            <span className="text-sm font-medium">Scroll Down</span>
-            <ArrowDown size={16} />
+        <div className="absolute top-16 left-6 md:left-12 z-20">
+          <span className="text-amber-600 font-medium text-xs tracking-[0.4em] uppercase mb-2 block">History</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-apple-text mb-2">Career Journey</h2>
+          <div className="flex items-center gap-2 text-apple-subtext mt-4 bg-white/60 px-3 py-1 rounded-full backdrop-blur-sm w-fit">
+            <span className="text-sm font-medium">Scroll</span>
+            <ArrowDown size={14} />
           </div>
         </div>
 
-        {/* Added mt-32 to push the cards down, creating space between header and cards */}
-        <motion.div style={{ x }} className="flex gap-8 md:gap-16 pl-6 md:pl-12 pr-48 items-center mt-24 md:mt-32">
-          {/* Spacer to push content right initially so it doesn't overlap header too much */}
-          <div className="min-w-[50px] md:min-w-[150px]"></div>
-
+        <motion.div style={{ x }} className="flex gap-8 md:gap-14 pl-6 md:pl-12 pr-32 items-center mt-24 md:mt-28">
+          <div className="min-w-[80px]" />
           {TIMELINE_DATA.map((item) => (
-            <motion.div 
-              key={item.id} 
-              className="relative group min-w-[320px] md:min-w-[450px] flex flex-col justify-start"
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+            <motion.div
+              key={item.id}
+              className="relative min-w-[300px] md:min-w-[400px] flex flex-col"
+              whileHover={{ y: -6 }}
             >
-              {/* Year Indicator */}
-              <div className="mb-6 border-b border-gray-400/30 pb-4 flex items-baseline gap-3">
-                 <div className="w-4 h-4 rounded-full bg-amber-400 ring-4 ring-amber-100 shadow-sm"></div>
-                <span className="text-4xl md:text-6xl font-bold text-apple-text font-mono">
+              <div className="mb-5 border-b border-white/40 pb-3 flex items-baseline gap-3">
+                <div className="w-3 h-3 rounded-full bg-amber-400"></div>
+                <span className="text-3xl md:text-4xl font-bold text-apple-text font-mono">
                   {item.date.split('.')[0]}
-                  <span className="text-xl md:text-2xl text-amber-600/70">.{item.date.split('.')[1] || ''}</span>
+                  <span className="text-lg text-amber-600/80">.{item.date.split('.')[1] || ''}</span>
                 </span>
               </div>
 
-              {/* Card */}
-              <div className="bg-white/80 backdrop-blur-lg border border-white/60 p-6 md:p-8 rounded-3xl h-[420px] flex flex-col shadow-sm transition-all duration-300 group-hover:shadow-2xl group-hover:bg-white/95 group-hover:border-amber-200">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`p-2.5 rounded-2xl ${
-                    item.category === 'work' ? 'bg-sky-100 text-sky-600' :
-                    item.category === 'education' ? 'bg-amber-100 text-amber-600' :
-                    item.category === 'migration' ? 'bg-orange-100 text-orange-600' :
-                    'bg-indigo-100 text-indigo-600'
-                  }`}>
-                    {item.category === 'work' && <Briefcase size={20} />}
-                    {item.category === 'education' && <GraduationCap size={20} />}
-                    {item.category === 'migration' && <Plane size={20} />}
-                    {item.category === 'milestone' && <Star size={20} />}
+              <div className="bg-white/80 backdrop-blur-lg border border-white/60 p-5 rounded-3xl flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`p-2 rounded-2xl ${
+                      item.category === 'work'
+                        ? 'bg-sky-100 text-sky-600'
+                        : item.category === 'education'
+                        ? 'bg-amber-100 text-amber-600'
+                        : item.category === 'migration'
+                        ? 'bg-orange-100 text-orange-600'
+                        : 'bg-indigo-100 text-indigo-600'
+                    }`}
+                  >
+                    {item.category === 'work' && <Briefcase size={18} />}
+                    {item.category === 'education' && <GraduationCap size={18} />}
+                    {item.category === 'migration' && <Plane size={18} />}
+                    {item.category === 'milestone' && <Star size={18} />}
                   </div>
-                  <span className="text-xs font-bold text-apple-subtext uppercase tracking-widest">{item.category}</span>
+                  <span className="text-[11px] uppercase tracking-[0.3em] text-apple-subtext">{item.category}</span>
                 </div>
-
-                <h3 className="text-xl md:text-2xl font-bold text-apple-text mb-1">{item.title}</h3>
-                {item.subtitle && <p className="text-amber-600 font-medium mb-4">{item.subtitle}</p>}
-                
-                <p className="text-apple-subtext leading-relaxed text-sm md:text-base flex-grow">
+                <div>
+                  <h3 className="text-xl font-semibold text-apple-text">{item.title}</h3>
+                  {item.subtitle && <p className="text-amber-600 text-sm">{item.subtitle}</p>}
+                </div>
+                <p className="text-sm text-apple-subtext max-w-md">
                   {item.description}
                 </p>
-
                 {item.tags && (
-                  <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-100/50">
-                    {item.tags.map(tag => (
-                      <span key={tag} className="text-xs bg-amber-50/50 border border-amber-100 px-2.5 py-1 rounded-lg text-amber-700/80 font-medium">
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-white/50">
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="text-[11px] px-2 py-1 bg-amber-50/60 text-amber-700 rounded-full">
                         {tag}
                       </span>
                     ))}

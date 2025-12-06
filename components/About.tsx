@@ -1,38 +1,46 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ABOUT_FACTS } from '../constants';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-32 px-6 bg-transparent">
+    <section id="about" className="py-28 px-6 bg-transparent">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
-          <span className="text-apple-blue font-medium text-sm tracking-widest uppercase mb-4 block">About Me</span>
-          <h2 className="text-4xl md:text-6xl font-bold text-apple-text mb-12">
-            Adapting to change. <br />
-            Building the future.
-          </h2>
+          <span className="text-apple-blue font-medium text-xs tracking-[0.4em] uppercase mb-4 block">Profile</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-apple-text mb-8">About Li Hao</h2>
 
-          <div className="space-y-8 text-lg md:text-xl text-apple-subtext leading-relaxed">
+          <div className="space-y-6 text-lg text-apple-subtext leading-relaxed max-w-3xl">
             <p>
-              こんにちは、李昊（リ・コウ）と申します。
-              中国・北京での4年半にわたるMSD製薬（Merck & Co.）でのキャリアを経て、
-              テクノロジーの力でより直接的に課題解決を行いたいという思いから、エンジニアへの転身を決意しました。
+              東京拠点のクラウドインフラエンジニアです。製薬業界で鍛えた厳格なプロセス感覚をベースに、AWS /
+              Terraform を使った安全性重視の基盤構築・自動化を担当しています。
             </p>
             <p>
-              前職のファーマコビジランス（安全性情報管理）業務では、グローバルな基準（GVP/GPSP）に基づいた
-              厳格なプロセス管理とデータ分析を行い、ミスが許されない環境での業務遂行能力を培いました。
-              この経験は、現在のインフラエンジニアとしての「安全性」「信頼性」を重視する姿勢に繋がっています。
+              Cloud infrastructure engineer in Tokyo with a pharma background. I focus on resilient AWS environments,
+              delivering IaC, CI/CD, and observability so teams can read the system health at a glance.
             </p>
-            <p>
-              現在はAWSを活用したクラウド基盤の設計・構築に従事しています。
-              Terraformを用いたIaC化や、モダンな技術スタックを吸収しながら、
-              日々成長を続けています。
-            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+            {ABOUT_FACTS.map((fact, index) => (
+              <motion.div
+                key={fact.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="rounded-3xl border border-white/60 bg-white/55 backdrop-blur px-5 py-4"
+              >
+                <p className="text-[11px] uppercase tracking-[0.35em] text-apple-subtext mb-2">{fact.label}</p>
+                <p className="text-xl font-semibold text-apple-text">{fact.value}</p>
+                <p className="text-sm text-apple-subtext">{fact.detail}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

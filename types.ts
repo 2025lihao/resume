@@ -10,13 +10,6 @@ export interface TimelineItem {
   tags?: string[];
 }
 
-export interface SkillItem {
-  name: string;
-  level: number; // 1-100
-  icon?: React.ReactNode;
-  category: string;
-}
-
 export interface LanguageItem {
   language: string;
   level: string;
@@ -30,4 +23,11 @@ export interface CertificationItem {
   level: 'Professional' | 'Specialty' | 'Associate' | 'Foundational';
   date: string;
   badgeColor: string;
+}
+
+export interface AboutFact {
+  id: number;
+  label: string;
+  value: string;
+  detail: string;
 }

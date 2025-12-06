@@ -1,110 +1,67 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SKILLS, LANGUAGES } from '../constants';
+
+const basePath = import.meta.env.BASE_URL ?? '/';
+
+const SKILLS = [
+  { id: 'aws', name: 'AWS', description: 'マルチアカウント構成やネットワーク設計などを担当。', image: `${basePath}images/skill-aws.png` },
+  { id: 'networking', name: 'Networking', description: 'VPC、サブネット、ルーティングなどクラウドネットワーク。', image: `${basePath}images/skill-networking.png` },
+  { id: 'linux', name: 'Linux', description: 'サーバ運用やトラブルシューティングで利用。', image: `${basePath}images/skill-linux.png` },
+  { id: 'containers', name: 'Containers', description: 'Docker / ECS Fargate でのコンテナ運用。', image: `${basePath}images/skill-containers.png` },
+  { id: 'git', name: 'Git', description: 'チーム開発でのブランチ戦略・コードレビュー。', image: `${basePath}images/skill-git.png` },
+  { id: 'github', name: 'GitHub', description: 'リポジトリ運用やレビューのプラットフォーム。', image: `${basePath}images/skill-github.png` },
+  { id: 'python', name: 'Python', description: '自動化スクリプトやデータ処理に使用。', image: `${basePath}images/skill-python.png` },
+  { id: 'bash', name: 'Bash', description: '日常的な運用・検証作業の効率化。', image: `${basePath}images/skill-bash.png` },
+  { id: 'yaml', name: 'YAML', description: 'IaC や設定ファイルの記述で利用。', image: `${basePath}images/skill-yaml.png` },
+  { id: 'terraform', name: 'Terraform', description: 'インフラのコード化と再利用可能なモジュール設計。', image: `${basePath}images/skill-terraform.png` },
+  { id: 'aws-cdk', name: 'AWS CDK', description: 'TypeScript/Python でのクラウドリソース定義。', image: `${basePath}images/skill-aws-cdk.png` },
+  { id: 'postgresql', name: 'PostgreSQL', description: 'アプリケーションのデータストアとして利用。', image: `${basePath}images/skill-postgresql.png` },
+  { id: 'vscode', name: 'VS Code', description: '普段の開発や IaC 設計のメインエディタ。', image: `${basePath}images/skill-vscode.png` },
+  { id: 'notion', name: 'Notion', description: '個人メモや情報整理・ナレッジ共有に利用。', image: `${basePath}images/skill-notion.png` },
+  { id: 'jira', name: 'Jira', description: 'タスク管理やスプリント計画の管理。', image: `${basePath}images/skill-jira.png` },
+  { id: 'confluence', name: 'Confluence', description: '設計書や運用ドキュメントの整理。', image: `${basePath}images/skill-confluence.png` },
+  { id: 'github-actions', name: 'GitHub Actions', description: 'CI/CD パイプラインや自動化ワークフロー。', image: `${basePath}images/skill-github-actions.png` },
+  { id: 'slack', name: 'Slack', description: 'チームコミュニケーションとアラート連携。', image: `${basePath}images/skill-slack.png` },
+];
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-32 px-6 bg-transparent border-t border-gray-200/50">
-      <div className="max-w-5xl mx-auto">
-        
-        {/* Languages Section */}
-        <div className="mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-             <span className="text-apple-blue font-medium text-sm tracking-widest uppercase mb-3 block">Global Communication</span>
-             <h2 className="text-3xl md:text-4xl font-bold text-apple-text">Languages</h2>
-          </motion.div>
+    <section id="skills" className="py-28 px-6 bg-white border-t border-white/40">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <span className="text-apple-blue font-medium text-xs tracking-[0.35em] uppercase mb-3 block">Skills</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-apple-text">Toolset</h2>
+          <p className="text-apple-subtext mt-4 max-w-3xl mx-auto">
+            日常的に使っているツールや技術を、シンプルなアイコンで一覧化しました。
+          </p>
+        </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {LANGUAGES.map((lang, index) => (
-              <motion.div
-                key={lang.language}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className={`p-8 rounded-3xl ${lang.color} bg-opacity-30 backdrop-blur-sm border border-current border-opacity-20 flex flex-col items-center text-center`}
-              >
-                <h3 className="text-2xl font-bold mb-2">{lang.language}</h3>
-                <span className="inline-block px-3 py-1 rounded-full bg-white/60 backdrop-blur-md text-sm font-semibold mb-4 shadow-sm">
-                  {lang.level}
-                </span>
-                <p className="text-sm opacity-90 font-medium leading-relaxed">
-                  {lang.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Technical Skills Section */}
-        <div>
-          <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="text-center mb-12"
-          >
-             <span className="text-apple-blue font-medium text-sm tracking-widest uppercase mb-3 block">Expertise</span>
-             <h2 className="text-3xl md:text-4xl font-bold text-apple-text">Technical Skills</h2>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Highlight Card for AWS */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
+          {SKILLS.map((skill, index) => (
+            <motion.div
+              key={skill.id}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              className="col-span-1 md:col-span-2 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 backdrop-blur-md border border-blue-100 p-8 rounded-3xl relative overflow-hidden shadow-sm"
+              transition={{ delay: (index % 6) * 0.05 }}
+              className="flex flex-col items-center text-center gap-2"
             >
-              <div className="absolute top-0 right-0 w-40 h-40 bg-blue-200 blur-[80px] rounded-full opacity-50"></div>
-              <h3 className="text-2xl font-bold text-blue-900 mb-4 relative z-10">Cloud Infrastructure</h3>
-              <p className="text-slate-600 relative z-10 mb-6 leading-relaxed">
-                AWS Cloud Infrastructure Design & Construction. <br />
-                Specializing in secure, scalable environments using Terraform.
-              </p>
-              <div className="flex flex-wrap gap-2 relative z-10">
-                {['EC2', 'S3', 'VPC', 'Terraform', 'Step Functions'].map(tag => (
-                   <span key={tag} className="px-3 py-1 bg-white/80 text-blue-600 rounded-full text-sm font-medium shadow-sm">
-                     {tag}
-                   </span>
-                ))}
-              </div>
+              <img
+                src={skill.image}
+                alt={skill.name}
+                className="h-16 w-16 md:h-20 md:w-20 object-contain"
+                loading="lazy"
+              />
+              <h3 className="text-sm md:text-base font-semibold text-apple-text">{skill.name}</h3>
+              <p className="text-xs text-apple-subtext max-w-[9rem]">{skill.description}</p>
             </motion.div>
-
-            {SKILLS.map((skill, index) => (
-              <motion.div 
-                key={skill.name}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{ y: -5, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.1)' }}
-                className="bg-white/60 backdrop-blur-md border border-white/50 p-6 rounded-3xl hover:bg-white/80 transition-all duration-300 flex flex-col justify-between h-full"
-              >
-                <div>
-                  <p className="text-xs text-apple-subtext uppercase tracking-widest mb-3 font-semibold">{skill.category}</p>
-                  <h3 className="text-lg font-bold text-apple-text leading-tight">{skill.name}</h3>
-                </div>
-                <div className="mt-4 w-full bg-gray-200/50 h-1.5 rounded-full overflow-hidden">
-                   <motion.div 
-                     initial={{ width: 0 }}
-                     whileInView={{ width: `${skill.level}%` }}
-                     transition={{ duration: 1, delay: 0.5 }}
-                     className="bg-apple-blue h-full rounded-full"
-                   />
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          ))}
         </div>
-
       </div>
     </section>
   );

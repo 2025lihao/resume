@@ -6,14 +6,26 @@ import Certifications from './components/Certifications';
 import Timeline from './components/Timeline';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
+import NatureScene from './components/NatureScene';
+import Disciplines from './components/Disciplines';
 
 function App() {
   return (
-    // REMOVED 'overflow-hidden' from here to fix the sticky position in Timeline
     <div className="relative min-h-screen text-apple-text selection:bg-amber-400 selection:text-white">
-      
+      {/* Layered Background */}
+      <div className="fixed inset-0 z-[-3] pointer-events-none">
+        <div 
+          className="absolute inset-0 opacity-40" 
+          style={{ backgroundImage: 'linear-gradient(110deg, rgba(255, 214, 150, 0.25), rgba(210, 242, 255, 0.25))' }}
+        />
+        <div 
+          className="absolute inset-0 opacity-[0.15]" 
+          style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+        />
+      </div>
+
       {/* Sunny/Sunshine Theme Background */}
-      <div className="fixed inset-0 z-[-1] pointer-events-none bg-[#fffefc]">
+      <div className="fixed inset-0 z-[-2] pointer-events-none bg-[#fffefc]">
         {/* Base Gradient: Warm sunshine to soft sky */}
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-50/80 via-orange-50/40 to-sky-50/30" />
         
@@ -28,22 +40,24 @@ function App() {
         <div className="absolute top-[10%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-sky-100 blur-[120px] opacity-40 mix-blend-multiply animate-blob animation-delay-4000" />
       </div>
 
+      <NatureScene />
       <Navbar />
       <main>
         <Hero />
-        {/* Components with semi-transparent backgrounds to let the sunny theme shine through */}
+        <div className="bg-white/20 backdrop-blur-lg">
+          <Disciplines />
+        </div>
         <div className="bg-white/30 backdrop-blur-xl">
           <About />
+        </div>
+        <div className="bg-white/30 backdrop-blur-lg">
+          <Skills />
         </div>
         <div className="bg-white/20 backdrop-blur-lg">
           <Certifications />
         </div>
-        {/* Timeline container */}
         <div className="bg-gradient-to-b from-white/30 to-amber-50/20 backdrop-blur-xl">
           <Timeline />
-        </div>
-        <div className="bg-white/40 backdrop-blur-xl">
-          <Skills />
         </div>
       </main>
       <Footer />
