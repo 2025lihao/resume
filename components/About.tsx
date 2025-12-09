@@ -13,16 +13,17 @@ const About: React.FC = () => {
           transition={{ duration: 0.7 }}
         >
           <span className="text-apple-blue font-medium text-xs tracking-[0.4em] uppercase mb-4 block">Profile</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-apple-text mb-8">About Li Hao</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-apple-text mb-8">About Me</h2>
 
           <div className="space-y-6 text-lg text-apple-subtext leading-relaxed max-w-3xl">
             <p>
-              東京拠点のクラウドインフラエンジニアです。製薬業界で鍛えた厳格なプロセス感覚をベースに、AWS /
-              Terraform を使った安全性重視の基盤構築・自動化を担当しています。
+              東京を拠点に活動するクラウドインフラエンジニアです。<br />
+              製薬業界で培った正確性・再現性への意識を基盤に、信頼性・セキュリティ重視のクラウド基盤設計や自動化を担当しています。
             </p>
             <p>
-              Cloud infrastructure engineer in Tokyo with a pharma background. I focus on resilient AWS environments,
-              delivering IaC, CI/CD, and observability so teams can read the system health at a glance.
+              I’m a cloud infrastructure engineer based in Tokyo.<br />
+              With a background in the pharmaceutical industry, I value precision and reproducibility,<br />
+              and focus on designing secure, reliable cloud foundations and driving automation.
             </p>
           </div>
 

@@ -6,7 +6,7 @@ const DISCIPLINES = [
   {
     id: 'infra',
     title: 'Cloud / Infra',
-    description: 'AWS を中心に、VPC・マルチアカウント構成・ネットワーク設計などのインフラ基盤を担当しています。',
+    description: 'AWSを中心に、クラウド基盤の設計・構築・運用全般に携わっています。',
     icon: Cloud,
     iconClass: 'text-sky-500',
     bgClass: 'from-sky-50/70 via-white/40 to-white/30',
@@ -14,7 +14,7 @@ const DISCIPLINES = [
   {
     id: 'devops',
     title: 'DevOps',
-    description: 'Terraform や AWS CDK を用いた IaC 化、CI/CD パイプライン構築など、自動化による効率化を行っています。',
+    description: 'CI/CDパイプラインの設計、障害対応、運用効率化などに向けた仕組みづくりを担当しています。',
     icon: Workflow,
     iconClass: 'text-violet-500',
     bgClass: 'from-violet-50/70 via-white/40 to-white/30',
@@ -30,7 +30,7 @@ const DISCIPLINES = [
   {
     id: 'data',
     title: 'Database',
-    description: 'PostgreSQL などのデータベース設計や、ログ・メトリクスを活かした運用改善に関わっています。',
+    description: 'PostgreSQLなどのデータベース設計や、ログ・メトリクスを活かした運用改善に関わっています。',
     icon: Database,
     iconClass: 'text-emerald-500',
     bgClass: 'from-emerald-50/70 via-white/40 to-white/30',
@@ -47,7 +47,7 @@ const Disciplines: React.FC = () => {
       <div className="relative max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-2 text-apple-text">Disciplines</h2>
         <p className="text-apple-subtext mb-10">
-          担当しているクラウドまわりの領域を、シンプルなアイコンでまとめました。
+          担当している主な技術領域をまとめています。
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-10 items-start justify-items-center max-w-7xl mx-auto">
           {DISCIPLINES.map((item) => {

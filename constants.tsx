@@ -27,7 +27,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     date: '2016.08',
     title: 'JLPT N1 取得',
     subtitle: '日本語能力試験',
-    description: '最高レベルであるN1に合格。',
+    description: '日本語N1に合格。',
     category: 'milestone',
     tags: ['JLPT N1']
   },
@@ -44,7 +44,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     date: '2018.07 - 2022.12',
     title: 'MSD (Merck & Co.) 北京支社',
     subtitle: 'Pharmacovigilance Specialist',
-    description: '日英中を用いた安全性情報管理を担当。監査対応やPython自動化で品質改善を推進。',
+    description: '日英環境でのグローバル安全性情報管理に従事し、品質向上と自動化を推進。患者安全に貢献。',
     category: 'work',
     tags: ['Global Collaboration', 'Python', 'Process Improvement']
   },
@@ -53,7 +53,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     date: '2023.04',
     title: 'QLITE株式会社 入社',
     subtitle: 'AWS Cloud Engineer (SES)',
-    description: 'AWS基盤に集中してキャリア転換。TerraformやIaCの基礎を固める準備期間。',
+    description: 'IT業界へキャリア転換し、AWS案件を中心とするSES企業QLITEに参画。クラウドの基礎を固めつつ、オンライン研修でスキルを強化し、就労ビザの発行を待ち。',
     category: 'work'
   },
   {

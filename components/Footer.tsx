@@ -6,11 +6,11 @@ const Footer: React.FC = () => {
     <footer className="relative py-16 bg-gradient-to-b from-white/40 to-amber-50/40 border-t border-white/60 text-center overflow-hidden">
       <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle,_rgba(255,255,255,0.8),_transparent_65%)] pointer-events-none" />
       <div className="relative max-w-5xl mx-auto px-6">
-        <h3 className="text-2xl md:text-3xl font-bold text-apple-text mb-4">
-          東京を拠点に、JP / ZH / EN でクラウド基盤を支援しています。
+        <h3 className="text-2xl md:text-3xl font-semibold text-slate-800 mb-3">
+          誰もが安心して使える技術基盤をつくり、
         </h3>
-        <p className="text-apple-subtext mb-10">
-          プロジェクトの短期支援や長期参画について、お気軽にご連絡ください。
+        <p className="text-lg text-slate-600 mb-10">
+          より良いデジタル体験を社会に届けることを目指しています。
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">

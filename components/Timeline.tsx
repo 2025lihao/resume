@@ -24,17 +24,20 @@ const Timeline: React.FC = () => {
 
         <motion.div style={{ x }} className="flex gap-8 md:gap-14 pl-6 md:pl-12 pr-32 items-center mt-24 md:mt-28">
           <div className="min-w-[80px]" />
-          {TIMELINE_DATA.map((item) => (
-            <motion.div
-              key={item.id}
-              className="relative min-w-[300px] md:min-w-[400px] flex flex-col h-[340px] md:h-[360px]"
-              whileHover={{ y: -6 }}
-            >
+          {TIMELINE_DATA.map((item) => {
+            const [yearPart, ...restParts] = item.date.split('.');
+            const secondaryPart = restParts.length ? `.${restParts.join('.')}` : '';
+            return (
+              <motion.div
+                key={item.id}
+                className="relative min-w-[300px] md:min-w-[400px] flex flex-col h-[340px] md:h-[360px]"
+                whileHover={{ y: -6 }}
+              >
               <div className="mb-5 border-b border-white/40 pb-3 flex items-baseline gap-3">
                 <div className="w-3 h-3 rounded-full bg-amber-400"></div>
                 <span className="text-3xl md:text-4xl font-bold text-apple-text font-mono">
-                  {item.date.split('.')[0]}
-                  <span className="text-lg text-amber-600/80">.{item.date.split('.')[1] || ''}</span>
+                  {yearPart}
+                  <span className="text-lg text-amber-600/80">{secondaryPart}</span>
                 </span>
               </div>
 
@@ -75,8 +78,9 @@ const Timeline: React.FC = () => {
                   </div>
                 )}
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

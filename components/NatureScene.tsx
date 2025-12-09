@@ -10,7 +10,7 @@ const birdRoutes = [
 const NatureScene: React.FC = () => {
   return (
     <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
-      {/* River */}
+      {/* River glow */}
       <motion.div
         className="absolute bottom-[-8%] left-1/2 -translate-x-1/2 w-[90vw] h-[30vh]"
         animate={{ opacity: [0.85, 0.95, 0.85] }}
@@ -20,7 +20,7 @@ const NatureScene: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-100/60 to-sky-50/40 opacity-70 rounded-[45%] blur-3xl mix-blend-lighten" />
       </motion.div>
 
-      {/* Leafy canopy accents */}
+      {/* Soft canopy bloom */}
       <motion.div
         className="absolute top-[-15%] left-[5%] w-[30vw] h-[30vw] rounded-[40%] bg-gradient-to-br from-emerald-200/50 to-green-400/30 blur-[90px]"
         animate={{ scale: [1, 1.03, 1], rotate: [0, 3, 0] }}
@@ -32,7 +32,7 @@ const NatureScene: React.FC = () => {
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Floating lily pads */}
+      {/* Lily pads */}
       {[...Array(3)].map((_, idx) => (
         <motion.div
           key={`pad-${idx}`}
@@ -46,7 +46,7 @@ const NatureScene: React.FC = () => {
         />
       ))}
 
-      {/* Birds */}
+      {/* Passing birds */}
       {birdRoutes.map((bird) => (
         <motion.div
           key={bird.id}

@@ -4,21 +4,21 @@ import { motion } from 'framer-motion';
 const basePath = import.meta.env.BASE_URL ?? '/';
 
 const SKILLS = [
-  { id: 'aws', name: 'AWS', description: 'マルチアカウント構成やネットワーク設計などを担当。', image: `${basePath}images/skill-aws.png` },
-  { id: 'networking', name: 'Networking', description: 'VPC、サブネット、ルーティングなどクラウドネットワーク。', image: `${basePath}images/skill-networking.png` },
+  { id: 'aws', name: 'AWS', description: '市場占有率トップのクラウド基盤を幅広く扱い、設計・運用全般を担当。', image: `${basePath}images/skill-aws.png` },
+  { id: 'networking', name: 'Networking', description: 'クラウドとオンプレを含むネットワーク全体の設計・接続・運用。', image: `${basePath}images/skill-networking.png` },
   { id: 'linux', name: 'Linux', description: 'サーバ運用やトラブルシューティングで利用。', image: `${basePath}images/skill-linux.png` },
-  { id: 'containers', name: 'Containers', description: 'Docker / ECS Fargate でのコンテナ運用。', image: `${basePath}images/skill-containers.png` },
+  { id: 'containers', name: 'Containers', description: 'Docker / ECS Fargateでのコンテナ運用。', image: `${basePath}images/skill-containers.png` },
   { id: 'git', name: 'Git', description: 'チーム開発でのブランチ戦略・コードレビュー。', image: `${basePath}images/skill-git.png` },
   { id: 'github', name: 'GitHub', description: 'リポジトリ運用やレビューのプラットフォーム。', image: `${basePath}images/skill-github.png` },
-  { id: 'python', name: 'Python', description: '自動化スクリプトやデータ処理に使用。', image: `${basePath}images/skill-python.png` },
+  { id: 'python', name: 'Python', description: '自動化スクリプトなどに使用。', image: `${basePath}images/skill-python.png` },
   { id: 'bash', name: 'Bash', description: '日常的な運用・検証作業の効率化。', image: `${basePath}images/skill-bash.png` },
   { id: 'yaml', name: 'YAML', description: 'IaC や設定ファイルの記述で利用。', image: `${basePath}images/skill-yaml.png` },
   { id: 'terraform', name: 'Terraform', description: 'インフラのコード化と再利用可能なモジュール設計。', image: `${basePath}images/skill-terraform.png` },
-  { id: 'aws-cdk', name: 'AWS CDK', description: 'TypeScript/Python でのクラウドリソース定義。', image: `${basePath}images/skill-aws-cdk.png` },
+  { id: 'aws-cdk', name: 'AWS CDK', description: 'TypeScript/Pythonでのクラウドリソース定義。', image: `${basePath}images/skill-aws-cdk.png` },
   { id: 'postgresql', name: 'PostgreSQL', description: 'アプリケーションのデータストアとして利用。', image: `${basePath}images/skill-postgresql.png` },
   { id: 'datadog', name: 'Datadog', description: '分散トレースやメトリクスでシステム監視を実施。', image: `${basePath}images/skill-datadog.png` },
   { id: 'ansible', name: 'Ansible', description: 'サーバ設定の自動化と反復構成管理を担当。', image: `${basePath}images/skill-ansible.png` },
-  { id: 'vscode', name: 'VS Code', description: '普段の開発や IaC 設計のメインエディタ。', image: `${basePath}images/skill-vscode.png` },
+  { id: 'vscode', name: 'VS Code', description: '普段の開発やIaC設計のメインエディタ。', image: `${basePath}images/skill-vscode.png` },
   { id: 'notion', name: 'Notion', description: '個人メモや情報整理・ナレッジ共有に利用。', image: `${basePath}images/skill-notion.png` },
   { id: 'jira', name: 'Jira', description: 'タスク管理やスプリント計画の管理。', image: `${basePath}images/skill-jira.png` },
   { id: 'confluence', name: 'Confluence', description: '設計書や運用ドキュメントの整理。', image: `${basePath}images/skill-confluence.png` },
@@ -41,7 +41,7 @@ const Skills: React.FC = () => {
           <span className="text-apple-blue font-medium text-xs tracking-[0.35em] uppercase mb-3 block">Skills</span>
           <h2 className="text-3xl md:text-4xl font-bold text-apple-text">Toolset</h2>
           <p className="text-apple-subtext mt-4 max-w-3xl mx-auto">
-            日常的に使っているツールや技術を、シンプルなアイコンで一覧化しました。
+            日常的に使っているツールや技術を一覧化しました。
           </p>
         </motion.div>
 

@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
           李 昊
         </motion.div>
 
-        {/* Desktop Menu */}
+        {/* Desktop navigation */}
         <div className="hidden md:flex space-x-8 text-sm font-medium text-apple-subtext">
           {['Profile', 'Certifications', 'History', 'Skills'].map((item) => (
             <motion.button
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile navigation toggle */}
         <div className="md:hidden">
           <motion.button 
             whileTap={{ scale: 0.9 }}
@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
         style={{ scaleX: Math.max(progress, 0.02) }}
       />
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile navigation drawer */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 

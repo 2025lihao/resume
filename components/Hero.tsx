@@ -35,14 +35,15 @@ const Hero: React.FC = () => {
         className="z-10 flex flex-col items-center"
       >
         <h2 className="text-apple-blue font-semibold text-xs md:text-sm mb-4 tracking-[0.4em] uppercase">
-          Infra & Reliability Engineer
+          Cloud Infra Engineer
         </h2>
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-apple-text mb-4">
           李 昊
-          <span className="block text-2xl md:text-3xl font-normal text-apple-subtext mt-3">リ コウ</span>
+          <span className="block text-2xl md:text-3xl font-normal text-apple-subtext mt-3">リ  コウ</span>
         </h1>
         <p className="text-lg md:text-xl text-apple-subtext max-w-3xl mx-auto leading-relaxed">
-          AWS / Terraform を軸に、安全で読めるクラウド基盤を短期間で整えることに集中しています。
+          AWSを中心に、環境構築・監視・運用改善など幅広く携わり、<br />
+          サービスを安心して使える基盤づくりに取り組んでいます。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-10">
